@@ -167,9 +167,27 @@ def model(X_train, Y_train, X_test, Y_test, num_iterations=2000, learning_rate=0
     
     return d
 
-d = model(train_set_x, train_set_y, test_set_x, test_set_y, num_iterations = 2000, learning_rate = 0.005, print_cost = True)
+#d = model(train_set_x, train_set_y, test_set_x, test_set_y, num_iterations = 2000, learning_rate = 0.005, print_cost = True)
+
+#learning rate difference test.
+learning_rates = [0.01,0.001,0.0001]
+models={}
+for i in learning_rates:
+    print("learning rate is: "+str(i))
+    models[str(i)] = model(train_set_x,train_set_y,test_set_x,test_set_y,num_iterations=1500,learning_rate=i,print_cost=False)
+    print('\n')
+for i in learning_rates:
+    plt.plot(np.squeeze(models[str(i)]["costs"]),label=str(models[str(i)]["learning_rate"]))
 
 
+plt.ylabel('cost')
+plt.xlabel('iteration')
+legend = plt.legend(loc='upper center', shadow=True)
+frame = legend.get_frame()
+plt.show()
+
+
+"""
 index = 5
 plt.imshow(test_set_x[:,index].reshape((num_px, num_px, 3)))
 plt.show()
@@ -183,4 +201,5 @@ plt.ylabel('costs')
 plt.xlabel('iterations')
 plt.title("learning rate ="+str(d["learning_rate"]))
 plt.show()
+"""
 
