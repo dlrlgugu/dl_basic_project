@@ -56,3 +56,28 @@ def initialize_with_zeros(dim):
     
     return w, b
 
+def propagate(w, b, X, Y):
+    m = X.shape[1]
+    
+    # FORWARD PROPAGATION (FROM X TO COST)
+    ### START CODE HERE ### (≈ 2 lines of code)
+    A = sigmoid(np.dot(w.T,X)+b)                                    # compute activation
+    cost = -1/m*np.sum((Y*np.log(A)+(1-Y)*np.log(1-A)))                                 # compute cost
+    ### END CODE HERE ###
+    
+    # BACKWARD PROPAGATION (TO FIND GRAD)
+    ### START CODE HERE ### (≈ 2 lines of code)
+    dw = (1/m)*np.dot(X,(A - Y).T))
+    db = 1/m*np.sum(A-Y)
+    ### END CODE HERE ###
+
+    assert(dw.shape == w.shape)
+    assert(db.dtype == float)
+    cost = np.squeeze(cost)
+    assert(cost.shape == ())
+    
+    grads = {"dw": dw,
+             "db": db}
+    
+    return grads, cost
+
