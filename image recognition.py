@@ -16,10 +16,11 @@ train_set_x_orig, train_set_y, test_set_x_orig, test_set_y, classes = load_datas
 
 print(train_set_x_orig.shape) #(209, 64, 64, 3)
 print(train_set_y.shape) #(1, 209)
-print(test_set_x_orig.shape)
-print(test_set_y.shape)
-print(classes.shape)
+print(test_set_x_orig.shape)#(50, 64, 64, 3)
+print(test_set_y.shape)#(1, 50)
+print(classes.shape)#(2,)
 
+print(train_set_x_orig.shape[0])
 
 #m_train=
 #m_test=
