@@ -167,8 +167,19 @@ def model(X_train, Y_train, X_test, Y_test, num_iterations=2000, learning_rate=0
     
     return d
 
-#d = model(train_set_x, train_set_y, test_set_x, test_set_y, num_iterations = 2000, learning_rate = 0.005, print_cost = True)
+d = model(train_set_x, train_set_y, test_set_x, test_set_y, num_iterations = 2000, learning_rate = 0.005, print_cost = True)
 
+test_image = ["dog1.jpeg","dog2.jpeg","dog3.jpeg"]
+for i in test_image:
+    image = np.array(ndimage.imread(i,flatten=False))
+    my_image = scipy.misc.imresize(image,size=(64,64)).reshape((1,64*64*3)).T
+    my_predicted_image = predict(d["w"],d["b"],my_image)
+
+    plt.imshow(image)
+    print("y = " + str(np.squeeze(my_predicted_image)) + ", your algorithm predicts a \"" )
+    print (int(np.squeeze(my_predicted_image)) )
+
+"""
 #learning rate difference test.
 learning_rates = [0.01,0.001,0.0001]
 models={}
@@ -187,7 +198,7 @@ frame = legend.get_frame()
 plt.show()
 
 
-"""
+
 index = 5
 plt.imshow(test_set_x[:,index].reshape((num_px, num_px, 3)))
 plt.show()
