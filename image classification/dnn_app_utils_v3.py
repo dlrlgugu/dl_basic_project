@@ -235,11 +235,15 @@ def L_model_forward(X, parameters):
     # Implement [LINEAR -> RELU]*(L-1). Add "cache" to the "caches" list.
     for l in range(1, L):
         A_prev = A 
-        A, cache = linear_activation_forward(A_prev, parameters['W' + str(l)], parameters['b' + str(l)], activation = "relu")
+        A, cache = linear_activation_forward(A_prev, parameters['W' + str(l)],
+                                             parameters['b' + str(l)],
+                                             activation = "relu")
         caches.append(cache)
     
     # Implement LINEAR -> SIGMOID. Add "cache" to the "caches" list.
-    AL, cache = linear_activation_forward(A, parameters['W' + str(L)], parameters['b' + str(L)], activation = "sigmoid")
+    AL, cache = linear_activation_forward(A, parameters['W' + str(L)],
+                                          parameters['b' + str(L)],
+                                          activation = "sigmoid")
     caches.append(cache)
     
     assert(AL.shape == (1,X.shape[1]))
