@@ -1,0 +1,4 @@
+https://github.com/jaza10/AppliedNeuralNetworkTitanicSurvival/blob/master/Deep%20Neural%20Network%20Application%20-%20Titanic%20Survival.ipynb
+
+https://towardsdatascience.com/https-medium-com-janzawadzki-applying-andrew-ngs-1st-deep-neural-network-on-the-titanic-survival-data-set-b77edbc83816
+
