@@ -48,7 +48,8 @@ def sigmoid(z):
 
 
 def initialize_with_zeros(dim):
-    w = np.zeros((dim,1))
+    w=np.random.randn(dim,1)*0.01
+    #w = np.zeros((dim,1))
     b = 0
 
     assert(w.shape == (dim, 1))
@@ -135,7 +136,7 @@ def predict(w, b, X):
     
     return Y_prediction
 
-def model(X_train, Y_train, X_test, Y_test, num_iterations=2000, learning_rate=0.5, print_cost=False):
+def model(X_train, Y_train, X_test, Y_test, num_iterations, learning_rate, print_cost=False):
     
     w, b = initialize_with_zeros(X_train.shape[0])
 
@@ -167,7 +168,7 @@ def model(X_train, Y_train, X_test, Y_test, num_iterations=2000, learning_rate=0
     
     return d
 
-d = model(train_set_x, train_set_y, test_set_x, test_set_y, num_iterations = 2000, learning_rate = 0.005, print_cost = True)
+d = model(train_set_x, train_set_y, test_set_x, test_set_y, num_iterations = 2000, learning_rate = 0.001, print_cost = True)
 
 test_image = ["dog1.jpeg","dog2.jpeg","dog3.jpeg"]
 for i in test_image:

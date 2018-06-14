@@ -230,7 +230,8 @@ def L_model_forward(X, parameters):
 
     caches = []
     A = X
-    L = len(parameters) // 2                  # number of layers in the neural network
+    L = len(parameters) // 2
+    # number of layers in the neural network
     
     # Implement [LINEAR -> RELU]*(L-1). Add "cache" to the "caches" list.
     for l in range(1, L):

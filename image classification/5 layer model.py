@@ -14,14 +14,15 @@ m_train = train_x_orig.shape[0]
 num_px = train_x_orig.shape[1]
 m_test = test_x_orig.shape[0]
 
-train_x_flatten = train_x_orig.reshape(train_x_orig.shape[0], -1).T   # The "-1" makes reshape flatten the remaining dimensions
+train_x_flatten = train_x_orig.reshape(train_x_orig.shape[0], -1).T
+# The "-1" makes reshape flatten the remaining dimensions
 test_x_flatten = test_x_orig.reshape(test_x_orig.shape[0], -1).T
 
 # Standardize data to have feature values between 0 and 1.
 train_x = train_x_flatten/255.
 test_x = test_x_flatten/255.
 
-layers_dims=[12288,20,7,5,1] # 4 layer.
+layers_dims=[12288,20,10,15,5,3,1] # 4 layer.
 
 def L_layer_model(X, Y, layers_dims, learning_rate = 0.0075, num_iterations = 2000, print_cost=False):
     np.random.seed(1)
